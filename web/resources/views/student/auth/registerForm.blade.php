@@ -99,7 +99,8 @@
     }
 </style>
 <div class="input-container">
-    <form action="" method="post">
+    <form action="{{route('student.auth.postRegister')}}" method="post">
+        @csrf
         <h1>Register Form</h1>
         <div class="inputbox">
             <input type="text" name="name" autocomplete="off">

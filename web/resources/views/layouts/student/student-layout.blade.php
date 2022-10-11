@@ -142,7 +142,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="" href="" role="button">
+        <a class="nav-link" data-widget="" href="{{route('student.auth.logout')}}" role="button">
           LogOut
         </a>
       </li>
@@ -160,7 +160,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link elevation-4">
       <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Sinh Viên</span>
     </a>
 
     <!-- Sidebar -->
@@ -170,13 +170,13 @@
         <div class="image">
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
-        <!-- <div class="info">
+        <div class="info">
           <a href="#" class="d-block">
             @if(Auth::check())
               {{Auth::user()->name}}
             @endif
           </a>
-        </div> -->
+        </div>
       </div>
 
       <!-- SidebarSearch Form -->
@@ -200,7 +200,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
-                Sản Phẩm
+                Thông báo và Tin tức
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -223,7 +223,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Danh Mục
+                Lịch học
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -246,7 +246,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-alt"></i>
               <p>
-                Tài Khoản
+                Điểm
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -263,7 +263,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
-                Đơn Hàng
+                Môn học
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

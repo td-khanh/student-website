@@ -104,7 +104,7 @@
         @csrf
         <h1>Login Form</h1>
         <div class="inputbox">
-            <input type="email" name="name" autocomplete="off">
+            <input type="email" name="email" autocomplete="off">
             <span>Email</span>
         </div>
         <div class="inputbox">

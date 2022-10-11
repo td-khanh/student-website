@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
@@ -20,11 +20,21 @@ class StudentController extends Controller
     {
         return view('student.auth.loginForm');
     }
-    public function postLogin(Request $data)
+    public function postLogin(Request $request)
     {
-        if ($data) {
+        $data = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($data)) {
+            return 'true';
+        } else {
+            return dd(Auth::attempt($data));
         }
+        
     }
+    
     //handle register
     public function registerForm()
     {
@@ -37,19 +47,21 @@ class StudentController extends Controller
             $newUser->fill($data->all());
             $newUser->status = 1;
             $newUser->name = $data->name;
-            $newUser->phone = $data->phone;
+            $newUser->phone = '0' + $data->phone;
             $newUser->avatar = '';
             if ($data->email) {
-                // $emailCheck;
                 if ($emailCheck = Student::select('email')->where('email', '=', $newUser->email)->first()) {
-                    if ($newUser->email == $emailCheck['email']) {
-                        redirect('student.auth.register');
-                    } else {
-                        $newUser->email = $data->email;
+                    if ($data->email == $emailCheck['email']) {
+                        return redirect()->route('student.auth.register');
                     }
+                } else {
+                    $newUser->email = $data->email;
                 }
             }
-            $newUser->password = Hash::make($data->password);
+             $newUser->password = Hash::make($data->password);
+           // $newUser->password = $data->password;
+            $newUser->save();
+            return redirect()->route('student.auth.login');
         }
     }
 }

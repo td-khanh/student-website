@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -38,7 +39,7 @@ class StudentController extends Controller
             $newUser->name = $data->name;
             $newUser->phone = $data->phone;
             $newUser->avatar = '';
-            if ($newUser->email) {
+            if ($data->email) {
                 // $emailCheck;
                 if ($emailCheck = Student::select('email')->where('email', '=', $newUser->email)->first()) {
                     if ($newUser->email == $emailCheck['email']) {
@@ -48,6 +49,7 @@ class StudentController extends Controller
                     }
                 }
             }
+            $newUser->password = Hash::make($data->password);
         }
     }
 }

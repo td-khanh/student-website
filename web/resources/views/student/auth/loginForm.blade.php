@@ -100,7 +100,7 @@
    
 </style>
 <div class="input-container">
-    <form action="{{route('student.auth.postLogin')}}" method="post">
+    <form action="{{route('auth.postLogin')}}" method="post">
         @csrf
         <h1>Login Form</h1>
         <div class="inputbox">

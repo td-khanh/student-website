@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,9 +28,18 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($data)) {
-            return redirect()->route('student.index');
+            // status 1: student
+            // _______2: teacher
+            //________3: admin
+            if(Auth::user()->status == 3){
+                return redirect()->route('admin.index');
+            } if (Auth::user()->status == 2) {
+                return redirect()->route('teacher.index');
+            } else {
+                return redirect()->route('student.index');
+            }
         } else {
-            return redirect()->route('student.login');;
+            return redirect()->route('student.auth.login');;
         }
         
     }
@@ -60,7 +68,6 @@ class AuthController extends Controller
                 }
             }
              $newUser->password = Hash::make($data->password);
-           // $newUser->password = $data->password;
             $newUser->save();
             return redirect()->route('student.auth.login');
         }

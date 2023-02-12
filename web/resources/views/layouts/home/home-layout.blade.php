@@ -28,16 +28,16 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav" style="color:black;">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('login')}}">CÁN BỘ ĐÀO TẠO</a>
+        <a class="nav-link" href="">CÁN BỘ ĐÀO TẠO</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('login')}}">GIẢNG VIÊN</a>
+        <a class="nav-link" href="">GIẢNG VIÊN</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('login')}}">PHỤ HUYNH</a>
+        <a class="nav-link" href="">PHỤ HUYNH</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('student.auth.login')}}">HỌC SINH</a>
+        <a class="nav-link" href="{{route('auth.login')}}">HỌC SINH</a>
       </li>
     </ul>
   </div>

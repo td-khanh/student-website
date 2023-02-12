@@ -142,7 +142,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="" href="{{route('student.auth.logout')}}" role="button">
+        <a class="nav-link" data-widget="" href="{{route('auth.logout')}}" role="button">
           LogOut
         </a>
       </li>

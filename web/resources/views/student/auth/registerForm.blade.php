@@ -99,7 +99,7 @@
     }
 </style>
 <div class="input-container">
-    <form action="{{route('student.auth.postRegister')}}" method="post">
+    <form action="{{route('auth.postRegister')}}" method="post">
         @csrf
         <h1>Register Form</h1>
         <div class="inputbox">
